@@ -68,7 +68,7 @@ header {
     gap: 20px;
     padding: 20px;
     max-width: 1300px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .game-card {
@@ -140,3 +140,4 @@ footer { text-align: center; padding: 60px; color: var(--subtext); }
     .search-bar { flex-direction: column; padding: 0 20px; }
     #random-btn { padding: 15px; }
 }
+
