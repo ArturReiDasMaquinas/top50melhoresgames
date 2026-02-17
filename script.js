@@ -156,11 +156,12 @@ const searchInput = document.getElementById('search-input');
 const randomBtn = document.getElementById('random-btn');
 
 function render(data) {
+    if (!container) return; // Segurança contra erro de carregamento
     container.innerHTML = data.map((game) => {
-        const index = games.indexOf(game);
+        const originalIndex = games.indexOf(game);
         return `
-            <div class="game-card" id="game-${index}">
-                <span class="rank">#${index + 1}</span>
+            <div class="game-card" id="game-${originalIndex}">
+                <span class="rank">#${originalIndex + 1}</span>
                 <h3 class="game-title">${game.title}</h3>
                 <span class="genre">${game.genre}</span>
             </div>
@@ -168,6 +169,7 @@ function render(data) {
     }).join('');
 }
 
+// Filtro de Busca Dinâmico
 searchInput.addEventListener('input', (e) => {
     const term = e.target.value.toLowerCase();
     const filtered = games.filter(g => 
@@ -176,20 +178,32 @@ searchInput.addEventListener('input', (e) => {
     render(filtered);
 });
 
+// Botão de Sorteio com Scroll Inteligente
 randomBtn.addEventListener('click', () => {
+    // Primeiro renderizamos a lista completa caso haja filtro ativo
     render(games);
     searchInput.value = '';
+
     const randomIndex = Math.floor(Math.random() * games.length);
     const selectedCard = document.getElementById(`game-${randomIndex}`);
     
-    document.querySelectorAll('.game-card').forEach(c => {
-        c.style.borderColor = 'rgba(255,255,255,0.1)';
-        c.style.transform = 'scale(1)';
-    });
+    if (selectedCard) {
+        // Remove destaques anteriores
+        document.querySelectorAll('.game-card').forEach(c => {
+            c.classList.remove('highlight');
+            c.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        });
 
-    selectedCard.style.borderColor = '#00f2ff';
-    selectedCard.style.transform = 'scale(1.05)';
-    selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Adiciona novo destaque
+        selectedCard.style.borderColor = '#00f2ff';
+        selectedCard.classList.add('highlight');
+        
+        // Rola até o card sorteado
+        selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 });
 
-render(games);
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
+    render(games);
+});
