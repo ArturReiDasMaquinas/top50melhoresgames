@@ -2,7 +2,7 @@
     --primary: #bc13fe; /* Roxo Neon */
     --secondary: #00f2ff; /* Azul Neon */
     --bg: #0a0118;
-    --card-bg: #160b2e;
+    --card-bg: rgba(255, 255, 255, 0.05);
     --text: #ffffff;
 }
 
@@ -13,44 +13,48 @@ body {
     color: var(--text);
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    scroll-behavior: smooth;
 }
 
 header {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
-    text-shadow: 0 0 20px var(--primary);
+    text-shadow: 0 0 15px var(--primary);
 }
 
-.accent { color: var(--secondary); text-shadow: 0 0 20px var(--secondary); }
+.accent { color: var(--secondary); text-shadow: 0 0 15px var(--secondary); }
 
 .controls {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 #search-input {
-    padding: 15px 20px;
-    border-radius: 25px;
+    padding: 15px 25px;
+    border-radius: 30px;
     border: 2px solid var(--primary);
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    width: 300px;
+    width: 320px;
+    outline: none;
 }
 
 #random-btn {
-    padding: 15px 25px;
-    border-radius: 25px;
+    padding: 15px 30px;
+    border-radius: 30px;
     border: none;
     background: var(--primary);
     color: white;
     font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -59,22 +63,24 @@ header {
     background: var(--secondary);
     color: black;
     box-shadow: 0 0 20px var(--secondary);
+    transform: scale(1.05);
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
     padding: 40px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .game-card {
     background: var(--card-bg);
-    padding: 25px;
+    backdrop-filter: blur(5px);
+    padding: 30px;
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     transition: 0.4s;
 }
@@ -82,56 +88,62 @@ header {
 .game-card:hover {
     transform: translateY(-10px);
     border-color: var(--secondary);
-    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
 }
 
 .rank {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-family: 'Orbitron', sans-serif;
     color: var(--secondary);
+    display: block;
+    margin-bottom: 10px;
 }
 
 .genre {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--primary);
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(188, 19, 254, 0.1);
+    padding: 4px 10px;
+    border-radius: 10px;
 }
 
 /* SEÇÃO PIX */
 .pix-section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     display: flex;
     justify-content: center;
 }
 
 .pix-card {
-    background: rgba(255,255,255,0.05);
+    background: #110821;
     border: 2px solid var(--secondary);
-    padding: 30px;
+    padding: 40px;
     border-radius: 30px;
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
 }
 
 .qr-wrapper {
     background: white;
-    padding: 10px;
-    border-radius: 15px;
-    margin: 20px 0;
+    padding: 15px;
+    border-radius: 20px;
+    margin: 25px 0;
     display: inline-block;
 }
 
 .qr-code {
-    width: 180px; /* Tamanho ajustado */
-    height: 180px;
+    width: 200px; /* Tamanho perfeito para leitura */
+    height: 200px;
     display: block;
 }
 
-footer { padding: 40px; text-align: center; opacity: 0.5; }
+footer { padding: 60px; text-align: center; opacity: 0.4; font-size: 0.8rem; }
 
-/* Responsividade */
 @media (max-width: 600px) {
-    .controls { flex-direction: column; align-items: center; }
+    .qr-code { width: 160px; height: 160px; }
     #search-input { width: 90%; }
-    .qr-code { width: 150px; height: 150px; }
 }
