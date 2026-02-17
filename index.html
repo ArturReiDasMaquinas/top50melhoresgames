@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 150 Games | Artur</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-animation"></div>
-    
     <header>
         <div class="hero">
-            <h1>TOP <span class="glitch">150</span> JOGOS</h1>
-            <p>A elite do entretenimento por <strong>Artur</strong></p>
+            <h1>TOP <span class="accent">150</span> JOGOS</h1>
+            <p>Os favoritos de <strong>Artur</strong></p>
         </div>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Encontre seu próximo vício...">
+        <div class="controls">
+            <input type="text" id="search-input" placeholder="Qual jogo você busca?">
             <button id="random-btn">🎲 SORTEAR</button>
         </div>
     </header>
@@ -26,19 +24,19 @@
     <section class="pix-section">
         <div class="pix-card">
             <h3>☕ Apoie o Artur</h3>
-            <p>Dê um "level up" no site com <b>R$ 10,00</b></p>
+            <p>Ajude a manter o ranking com <b>R$ 10,00</b></p>
             <div class="qr-wrapper">
                 <img src="chave-pix.png" alt="QR Code PIX" class="qr-code">
             </div>
             <div class="pix-info">
-                <span>Chave PIX (E-mail):</span>
-                <strong>arturgamertoplegal@gmail.com</strong>
+                <span>Chave PIX:</span>
+                <strong id="pix-key">arturgamertoplegal@gmail.com</strong>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Desenvolvido com ⚡ por Artur &copy; 2026</p>
+        <p>Criado por Artur &copy; 2026</p>
     </footer>
 
     <script src="script.js"></script>
