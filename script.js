@@ -161,8 +161,8 @@ function render(data) {
         return `
             <div class="game-card" id="game-${index}">
                 <span class="rank">#${index + 1}</span>
-                <h2 class="game-title">${game.title}</h2>
-                <p class="genre">${game.genre}</p>
+                <h3 class="game-title">${game.title}</h3>
+                <span class="genre">${game.genre}</span>
             </div>
         `;
     }).join('');
@@ -182,8 +182,13 @@ randomBtn.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * games.length);
     const selectedCard = document.getElementById(`game-${randomIndex}`);
     
-    document.querySelectorAll('.game-card').forEach(c => c.style.borderColor = 'rgba(255,255,255,0.1)');
+    document.querySelectorAll('.game-card').forEach(c => {
+        c.style.borderColor = 'rgba(255,255,255,0.1)';
+        c.style.transform = 'scale(1)';
+    });
+
     selectedCard.style.borderColor = '#00f2ff';
+    selectedCard.style.transform = 'scale(1.05)';
     selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
