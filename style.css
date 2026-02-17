@@ -17,20 +17,36 @@ body {
 }
 
 header {
-    padding: 80px 20px;
+    padding: 80px 20px 40px; /* Ajustei o padding inferior para a busca ficar mais perto */
     text-align: center;
 }
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
-    text-shadow: 0 0 15px var(--primary);
+    color: white; /* Cor base para o texto principal */
+    letter-spacing: 5px; /* Mais espaçamento para parecer com a imagem */
+    text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary); /* Efeito neon roxo */
+    margin-bottom: 10px;
 }
 
-.accent { color: var(--secondary); text-shadow: 0 0 15px var(--secondary); }
+.accent {
+    color: var(--secondary); /* Cor para o "150" */
+    text-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary); /* Efeito neon azul */
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem); /* Ajuste de tamanho responsivo */
+    color: rgba(255, 255, 255, 0.8); /* Cor mais suave */
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* Espaço entre o subtítulo e a barra de busca */
+}
 
 .controls {
-    margin-top: 30px;
+    margin-top: 0; /* Removido o margin-top para ficar mais próximo do subtítulo */
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -146,4 +162,5 @@ footer { padding: 60px; text-align: center; opacity: 0.4; font-size: 0.8rem; }
 @media (max-width: 600px) {
     .qr-code { width: 160px; height: 160px; }
     #search-input { width: 90%; }
+    .controls { gap: 10px; } /* Ajuste de espaçamento em mobile */
 }
